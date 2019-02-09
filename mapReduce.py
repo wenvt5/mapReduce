@@ -12,7 +12,7 @@ class RatingsBreakdown(MRJob):
         (userID, movieID, rating, timestamp)= line.split('\t')
         yield rating, 1
 
-    def reducer_count_ratings(self, key, values):
+    def reducer_count_ratings(self, key, value):
         yield key, sum(value)
 
 if __name__ == '__main__':
